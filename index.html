@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+ 
+    <head>
+        <meta charset="utf-8">
+        <title>Facebook Like Notifications - Using CSS and Jquery</title>
+        <style>
+            #alert {
+                position:fixed;
+                display:none;
+                left:50%;
+                margin-left:-300px;
+                top:200px;
+                width:600px;
+                text-align:center;
+                height:auto;
+                background:#eee;
+                padding:30px 10px;
+                font-family:'Handlee', sans-serif;
+                font-size:28px;
+                font-weight: bold;
+                border-radius:10px;
+                box-shadow:0px 5px 15px #333;
+                -webkit-box-shadow:0px 5px 15px #333;
+                -moz-box-shadow:0px 5px 15px #333;
+                border:10px solid rgba(0, 0, 0, .5);
+                background-clip: padding-box;
+                text-shadow:0px 1px 0px #FFF;
+				cursor:default;
+            }
+        </style>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <!--[if lt IE 9]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    </head>
+    
+    <body>
+        <div id="alert">
+            <div id="alertText"></div>
+        </div>
+        <button>Click Me</button>
+        <script>
+            function alert(textToshow, timeToShow) {
+                $("#alertText").html(textToshow);
+                $("#alert").fadeIn(1000, function () {
+                    $("#alertText").fadeIn(700);
+                });
+                setTimeout(function () {
+                    hideAlert();
+                }, timeToShow);
+            }
+
+            function hideAlert() {
+                $("#alert").fadeOut(700);
+            }
+
+            $(document).ready(function () {
+                alert("Loading...", 5000);
+            });
+
+            $("button").click(function () {
+                alert("You Clicked Me...", 5000);
+            });
+        </script>
+    </body>
+
+</html>
